@@ -36,7 +36,6 @@ struct FlickrImage: Decodable {
     let publishDateString: String = try container.decodeIfPresent(String.self, forKey: .publishDate) ?? ""
     let formatter = DateFormatter()
     let publishDate: Date = formatter.date(from: publishDateString) ?? Date.init()
-    print("Kelsey: About to init")
     self.init(title: title, imageURLString: imageURLString, publishDate: publishDate)
   }
 

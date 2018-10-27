@@ -33,7 +33,7 @@ class APIService {
   //Returns whether or not the data was successfully parsed.
   private func setupDataSource(dataString: String) -> Bool {
     do {
-      print("Kelsey: dataString is \(dataString)")
+//      print("Kelsey: dataString is \(dataString)")
       //To bypass the jsonFlickrFeed( prefix
       let startOfJSONIndex = dataString.index(dataString.startIndex, offsetBy: 15)
       //To bypass the ) suffix

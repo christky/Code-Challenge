@@ -7,5 +7,6 @@ target 'Code-Challenge' do
   pod 'Alamofire'
   pod 'AlamofireImage', '~> 3.4.1'
   pod 'SwiftyJSON'
+  pod 'SnapKit'
 end
 

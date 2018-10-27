@@ -26,7 +26,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell: ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
-    //Todo: style cell
+    cell.setupCell(titleText: APIService.instance.imageData[indexPath.row].title, imageURLString: APIService.instance.imageData[indexPath.row].imageURLString, publishDate: APIService.instance.imageData[indexPath.row].publishDate)
     return cell
   }
 
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     guard let text = searchBar.text, text != "" else {return}
     APIService.instance.fetchImages(text: text) { [unowned self] success in
       if success {
-        print("Kelsey: imageData contains \(APIService.instance.imageData.description)")
+//        print("Kelsey: imageData contains \(APIService.instance.imageData.description)")
         self.imageCollectionView.reloadData()
       } else {
         let alert = UIAlertController(title: "Sorry", message: "There was an error with the search.", preferredStyle: .alert)
