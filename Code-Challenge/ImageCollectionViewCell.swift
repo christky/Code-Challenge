@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
-  //Todo: Kelsey, place title, image, and publish date
   @IBOutlet weak var title: UILabel!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var publishLabel: UILabel!
@@ -18,6 +17,11 @@ class ImageCollectionViewCell: UICollectionViewCell {
   public func setupLabels(titleText: String, publishDate: Date) {
     title.text = titleText
     publishLabel.text = publishDate.description
+  }
+
+  public func setupImageView() {
+    imageView.layer.borderColor = UIColor(white: 0.2, alpha: 1.0).cgColor
+    imageView.layer.borderWidth = 0.5
   }
 
   public func loadImage(url: URL) {

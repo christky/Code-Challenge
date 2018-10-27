@@ -13,6 +13,5 @@ let header = ["Content": "application/json; charset = utf-8"]
 let fetchImagesScheme = "https"
 let fetchImagesHost = "api.flickr.com"
 let fetchImagesPath = "/services/feeds/photos_public.gne"
-//let fetchImagesURL = "https://api.flickr.com/services/feeds/photos_public.gne"
 
 let apiKey = "8515d9514acffc12462b58d761eec0dc"

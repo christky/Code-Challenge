@@ -25,7 +25,6 @@ class APIService {
       case .success(let value):
         completion(self.setupDataSource(dataString: value))
       case .failure(let error):
-        print("Kelsey: Request Failed with error...\(error.localizedDescription)")
         completion(false)
       }
     }
@@ -34,7 +33,6 @@ class APIService {
   //Returns whether or not the data was successfully parsed.
   private func setupDataSource(dataString: String) -> Bool {
     do {
-//      print("Kelsey: dataString is \(dataString)")
       //To bypass the jsonFlickrFeed( prefix
       let startOfJSONIndex = dataString.index(dataString.startIndex, offsetBy: 15)
       //To bypass the ) suffix
@@ -45,26 +43,20 @@ class APIService {
       self.imageData = try JSONDecoder().decode([FlickrImage].self, from: json.rawData())
       return true
     } catch let error {
-      print("Kelsey: The error is \(error)")
       return false
     }
   }
 
   private func buildURLString(text: String, endpointType: EndpointType ) -> String {
-//    var result = ""
-//    if endpointType == .fetchImagesURL {
-//      result += "\(fetchImagesURL)?format=json&tags=\(text)"
-//    }
-
     var components = URLComponents()
     components.scheme = fetchImagesScheme
     components.host = fetchImagesHost
     components.path = fetchImagesPath
-    //Todo: Kelsey, handle empty text
+
     let queryText: URLQueryItem = URLQueryItem(name: "tags", value: text)
     let queryFormat: URLQueryItem = URLQueryItem(name: "format", value: "json")
-    components.queryItems = [queryText, queryFormat]
-    print("Kelsey: The final URL is \(components.url)")
+    let queryTagmode: URLQueryItem = URLQueryItem(name: "tagmode", value: "all")
+    components.queryItems = [queryText, queryFormat, queryTagmode]
     return components.url?.absoluteString ?? ""
   }
 }

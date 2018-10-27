@@ -27,7 +27,8 @@ struct FlickrImage: Decodable {
 
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    let title: String = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
+    var title: String? = try container.decodeIfPresent(String.self, forKey: .title)
+    if (title == "" || title == nil) {title = "Flickr Photo"}
 
     let imageURLDict: [String: String] = try container.decodeIfPresent(Dictionary<String, String>.self, forKey: .imageURL) ?? ["m" : ""]
 
@@ -35,8 +36,9 @@ struct FlickrImage: Decodable {
 
     let publishDateString: String = try container.decodeIfPresent(String.self, forKey: .publishDate) ?? ""
     let formatter = DateFormatter()
+    formatter.dateFormat = "MMM dd, yyyy"
     let publishDate: Date = formatter.date(from: publishDateString) ?? Date.init()
-    self.init(title: title, imageURLString: imageURLString, publishDate: publishDate)
+    self.init(title: title!, imageURLString: imageURLString, publishDate: publishDate)
   }
 
 }

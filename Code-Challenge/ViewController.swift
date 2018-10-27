@@ -12,20 +12,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
   @IBOutlet weak var imageCollectionView: UICollectionView!
   @IBOutlet weak var searchBar: UISearchBar!
+
+  let cellHeight: CGFloat = 240
+
   override func viewDidLoad() {
-    setupSearchBar()
     super.viewDidLoad()
+    setupCollectionView()
+    runQuery(text: "Kobe Bryant")
   }
 
-  private func setupSearchBar() {
-
-  }
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return APIService.instance.imageData.count //Todo: Update
+    return APIService.instance.imageData.count
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell: ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
+    cell.setupImageView()
     cell.setupLabels(titleText: APIService.instance.imageData[indexPath.row].title, publishDate: APIService.instance.imageData[indexPath.row].publishDate)
     if let url = URL(string: APIService.instance.imageData[indexPath.row].imageURLString) {
         cell.imageView.contentMode = .scaleAspectFit
@@ -36,9 +38,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     guard let text = searchBar.text, text != "" else {return}
+    runQuery(text: text)
+  }
+
+  private func setupCollectionView() {
+    imageCollectionView.backgroundColor = UIColor.clear
+
+  }
+
+  private func runQuery(text: String) {
     APIService.instance.fetchImages(text: text) { [unowned self] success in
       if success {
-//        print("Kelsey: imageData contains \(APIService.instance.imageData.description)")
         self.imageCollectionView.reloadData()
       } else {
         let alert = UIAlertController(title: "Sorry", message: "There was an error with the search. Please try again.", preferredStyle: .alert)
