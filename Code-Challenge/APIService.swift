@@ -24,7 +24,8 @@ class APIService {
       switch response.result {
       case .success(let value):
         completion(self.setupDataSource(dataString: value))
-      case .failure:
+      case .failure(let error):
+        print("Kelsey: Request Failed with error...\(error.localizedDescription)")
         completion(false)
       }
     }
@@ -50,10 +51,20 @@ class APIService {
   }
 
   private func buildURLString(text: String, endpointType: EndpointType ) -> String {
-    var result = ""
-    if endpointType == .fetchImagesURL {
-      result += "\(fetchImagesURL)?format=json"
-    }
-    return result
+//    var result = ""
+//    if endpointType == .fetchImagesURL {
+//      result += "\(fetchImagesURL)?format=json&tags=\(text)"
+//    }
+
+    var components = URLComponents()
+    components.scheme = fetchImagesScheme
+    components.host = fetchImagesHost
+    components.path = fetchImagesPath
+    //Todo: Kelsey, handle empty text
+    let queryText: URLQueryItem = URLQueryItem(name: "tags", value: text)
+    let queryFormat: URLQueryItem = URLQueryItem(name: "format", value: "json")
+    components.queryItems = [queryText, queryFormat]
+    print("Kelsey: The final URL is \(components.url)")
+    return components.url?.absoluteString ?? ""
   }
 }

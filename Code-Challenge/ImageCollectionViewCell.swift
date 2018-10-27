@@ -17,16 +17,12 @@ class ImageCollectionViewCell: UICollectionViewCell {
 
   public func setupLabels(titleText: String, publishDate: Date) {
     title.text = titleText
-    //Todo: Kelsey, add image
-    //imageView.image = UIImage(
     publishLabel.text = publishDate.description
   }
 
   public func loadImage(url: URL) {
     getData(from: url) { data, response, error in
       guard let data = data, error == nil else { return }
-      print(response?.suggestedFilename ?? url.lastPathComponent)
-      print("Download Finished")
       DispatchQueue.main.async() {
         self.imageView.image = UIImage(data: data)
       }

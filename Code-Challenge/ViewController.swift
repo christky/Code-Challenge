@@ -41,7 +41,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //        print("Kelsey: imageData contains \(APIService.instance.imageData.description)")
         self.imageCollectionView.reloadData()
       } else {
-        let alert = UIAlertController(title: "Sorry", message: "There was an error with the search.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Sorry", message: "There was an error with the search. Please try again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
       }
