@@ -24,10 +24,10 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Olv-Ct-hXb"/>
                                 </connections>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-9s-HFE">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-9s-HFE">
                                 <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="4" id="nvJ-mB-jPE">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" sectionInsetReference="safeArea" id="nvJ-mB-jPE">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -87,7 +87,6 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mkm-9s-HFE" firstAttribute="top" secondItem="vbG-RK-LNp" secondAttribute="bottom" id="4H1-Gg-39b"/>
-                            <constraint firstItem="mkm-9s-HFE" firstAttribute="top" secondItem="vbG-RK-LNp" secondAttribute="bottom" id="4qr-DN-28q"/>
                             <constraint firstItem="mkm-9s-HFE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AuI-7S-NsY"/>
                             <constraint firstItem="vbG-RK-LNp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FZo-Ce-Nyz"/>
                             <constraint firstItem="vbG-RK-LNp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NX8-Gc-F5j"/>

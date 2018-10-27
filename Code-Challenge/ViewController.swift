@@ -26,7 +26,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell: ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
-    cell.setupCell(titleText: APIService.instance.imageData[indexPath.row].title, imageURLString: APIService.instance.imageData[indexPath.row].imageURLString, publishDate: APIService.instance.imageData[indexPath.row].publishDate)
+    cell.setupLabels(titleText: APIService.instance.imageData[indexPath.row].title, publishDate: APIService.instance.imageData[indexPath.row].publishDate)
+    if let url = URL(string: APIService.instance.imageData[indexPath.row].imageURLString) {
+        cell.imageView.contentMode = .scaleAspectFit
+        cell.loadImage(url: url)
+    }
     return cell
   }
 
