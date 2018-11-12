@@ -17,7 +17,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupCollectionView()
     runQuery(text: "Kobe Bryant")
   }
 
@@ -27,10 +26,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell: ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
-    cell.setupImageView()
     cell.setupLabels(titleText: APIService.instance.imageData[indexPath.row].title, publishDate: APIService.instance.imageData[indexPath.row].publishDate)
+    cell.styleLabels()
+    cell.styleCell()
     if let url = URL(string: APIService.instance.imageData[indexPath.row].imageURLString) {
-        cell.imageView.contentMode = .scaleAspectFit
         cell.loadImage(url: url)
     }
     return cell
@@ -41,10 +40,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     runQuery(text: text)
   }
 
-  private func setupCollectionView() {
-    imageCollectionView.backgroundColor = UIColor.clear
-
-  }
 
   private func runQuery(text: String) {
     APIService.instance.fetchImages(text: text) { [unowned self] success in

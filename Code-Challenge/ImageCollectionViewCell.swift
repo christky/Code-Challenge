@@ -19,9 +19,30 @@ class ImageCollectionViewCell: UICollectionViewCell {
     publishLabel.text = publishDate.description
   }
 
+  public func styleLabels() {
+    let font = UIFont(name: "Times New Roman", size: 10.0)
+   publishLabel.font = font
+    publishLabel.textColor = UIColor.blue
+  }
+
+  public func styleCell() {
+    //This creates the shadows and modifies the cards a little bit
+    contentView.layer.cornerRadius = 4.0
+    contentView.layer.borderWidth = 1.0
+    contentView.layer.borderColor = UIColor.clear.cgColor
+    contentView.layer.masksToBounds = false
+    contentView.backgroundColor = UIColor.white
+    layer.shadowColor = UIColor.gray.cgColor
+    layer.shadowOffset = CGSize(width: 0, height: 1.0)
+    layer.shadowRadius = 4.0
+    layer.shadowOpacity = 1.0
+    layer.masksToBounds = false
+    layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+    setupImageView()
+  }
+
   public func setupImageView() {
-    imageView.layer.borderColor = UIColor(white: 0.2, alpha: 1.0).cgColor
-    imageView.layer.borderWidth = 0.5
+    imageView.contentMode = .scaleAspectFit
   }
 
   public func loadImage(url: URL) {

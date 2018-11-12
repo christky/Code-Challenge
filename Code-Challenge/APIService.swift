@@ -33,14 +33,15 @@ class APIService {
   //Returns whether or not the data was successfully parsed.
   private func setupDataSource(dataString: String) -> Bool {
     do {
-      //To bypass the jsonFlickrFeed( prefix
+      //To bypass the 'jsonFlickrFeed( prefix'
       let startOfJSONIndex = dataString.index(dataString.startIndex, offsetBy: 15)
-      //To bypass the ) suffix
+      //To bypass the ')' suffix
       let endOfJSONIndex = dataString.index(dataString.endIndex, offsetBy: -1)
       let strippedString = dataString[startOfJSONIndex..<endOfJSONIndex]
       let jsonData: Data! = strippedString.data(using: .utf8)
       let json = try JSON(data: jsonData)["items"]
       self.imageData = try JSONDecoder().decode([FlickrImage].self, from: json.rawData())
+      if (imageData.count == 0) {return false}
       return true
     } catch let error {
       return false
