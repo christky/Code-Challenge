@@ -40,7 +40,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     runQuery(text: text)
   }
 
-
   private func runQuery(text: String) {
     APIService.instance.fetchImages(text: text) { [unowned self] success in
       if success {

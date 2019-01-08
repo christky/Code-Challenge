@@ -56,7 +56,7 @@ class APIService {
 
     let queryText: URLQueryItem = URLQueryItem(name: "tags", value: text)
     let queryFormat: URLQueryItem = URLQueryItem(name: "format", value: "json")
-    let queryTagmode: URLQueryItem = URLQueryItem(name: "tagmode", value: "all")
+    let queryTagmode: URLQueryItem = URLQueryItem(name: "tagmode", value: "any")
     components.queryItems = [queryText, queryFormat, queryTagmode]
     return components.url?.absoluteString ?? ""
   }

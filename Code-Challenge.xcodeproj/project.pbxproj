@@ -18,6 +18,8 @@
 		048D82CE2183B0CB00343B22 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D82CD2183B0CB00343B22 /* APIService.swift */; };
 		048D82D02183B11000343B22 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D82CF2183B11000343B22 /* Constants.swift */; };
 		048D82D22183B59000343B22 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D82D12183B59000343B22 /* ImageCollectionViewCell.swift */; };
+		04C76AAF21E4350000CB5DD8 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C76AAE21E4350000CB5DD8 /* CircleImage.swift */; };
+		04C76AB121E443CB00CB5DD8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C76AB021E443CB00CB5DD8 /* LoginViewController.swift */; };
 		0FDCCA8BA6FAFF8886F6EE8D /* Pods_Code_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F11F132788358BCD749710 /* Pods_Code_Challenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		048D82CD2183B0CB00343B22 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		048D82CF2183B11000343B22 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		048D82D12183B59000343B22 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		04C76AAE21E4350000CB5DD8 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		04C76AB021E443CB00CB5DD8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E0CBFBB267BCE9C6416B287 /* Pods-Code-Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code-Challenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Code-Challenge/Pods-Code-Challenge.release.xcconfig"; sourceTree = "<group>"; };
 		CEAAF662F4B8805B691ED454 /* Pods-Code-Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Code-Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Code-Challenge/Pods-Code-Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		D8F11F132788358BCD749710 /* Pods_Code_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Code_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,11 +116,13 @@
 		048D829E2183AEF200343B22 /* Code-Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				04C76AAE21E4350000CB5DD8 /* CircleImage.swift */,
 				048D829F2183AEF200343B22 /* AppDelegate.swift */,
 				048D82CF2183B11000343B22 /* Constants.swift */,
 				0412CEF02183EE5200D9BA06 /* FlickrImage.swift */,
 				048D82CD2183B0CB00343B22 /* APIService.swift */,
 				048D82A12183AEF200343B22 /* ViewController.swift */,
+				04C76AB021E443CB00CB5DD8 /* LoginViewController.swift */,
 				048D82D12183B59000343B22 /* ImageCollectionViewCell.swift */,
 				048D82A32183AEF200343B22 /* Main.storyboard */,
 				048D82A62183AEF300343B22 /* Assets.xcassets */,
@@ -342,6 +348,8 @@
 				048D82A22183AEF200343B22 /* ViewController.swift in Sources */,
 				048D82CE2183B0CB00343B22 /* APIService.swift in Sources */,
 				0412CEF12183EE5200D9BA06 /* FlickrImage.swift in Sources */,
+				04C76AAF21E4350000CB5DD8 /* CircleImage.swift in Sources */,
+				04C76AB121E443CB00CB5DD8 /* LoginViewController.swift in Sources */,
 				048D82D22183B59000343B22 /* ImageCollectionViewCell.swift in Sources */,
 				048D82A02183AEF200343B22 /* AppDelegate.swift in Sources */,
 				048D82D02183B11000343B22 /* Constants.swift in Sources */,
